@@ -10,23 +10,25 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "Bullet",
+"class": "Enemy",
 "language": "GDScript",
-"path": "res://scripts/Bullet.gd"
+"path": "res://scripts/Enemy.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Ship",
+"base": "Node2D",
+"class": "Level_1",
 "language": "GDScript",
-"path": "res://scripts/Ship.gd"
+"path": "res://scripts/Level_1.gd"
 } ]
 _global_script_class_icons={
-"Bullet": "",
-"Ship": ""
+"Enemy": "",
+"Level_1": ""
 }
+
 
 [application]
 
 config/name="SeaOdyssey"
+run/main_scene="res://nodes/Level_1.tscn"
 config/icon="res://icon.png"
 
 [display]
