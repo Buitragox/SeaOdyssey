@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Ship
 
-
-
 # Constants
 const MAX_SPEED = 200
 
