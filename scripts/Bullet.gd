@@ -29,6 +29,6 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(velocity)
 	if collision:
-		if collision.has_method("hit"):
-			collision.hit(damage)
+		if collision.collider.has_method("hit"):
+			collision.collider.hit(damage)
 		queue_free()

@@ -3,34 +3,35 @@ const CONF = preload("res://scripts/config.gd")
 
 class_name Level_1
 
+const MAX_ENEMIES_IN_SCREEN = 30 
+
 var enemy_scene = preload("res://nodes/Enemy.tscn")
 var ship_scene = preload("res://nodes/Ship.tscn")
 var positions
-var num_enemies = 15
 var cont = 0
 
-func get_positions():
+func get_position():
 	var pos_aux = Vector2()
-	var positions = []
-	for i in range(num_enemies):
+	
+	if cont % 3 == 0: 
+		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
 		
-		if i % 3 == 0: 
-			pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
-			
-		if i % 3 == 1:
-			pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
-		
-		if i % 3 == 2:
-			pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
-		
-		positions.append(pos_aux)
-
-	return positions
+	if cont % 3 == 1:
+		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
+	
+	if cont % 3 == 2:
+		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
+	
+	cont += 1
+	
+	if cont > 3:
+		cont = 0
+	
+	return pos_aux
 
 	
 func _ready():
 	randomize()
-	positions = get_positions()
 	print(positions)
 	var ship = ship_scene.instance()
 	ship.add_to_group("ship")
@@ -39,12 +40,12 @@ func _ready():
 	
 func _on_Timer_timeout():
 	
-	if get_tree().get_nodes_in_group("enemies").size() != num_enemies:
+	if get_tree().get_nodes_in_group("enemies").size() != MAX_ENEMIES_IN_SCREEN:
 		var enemy = enemy_scene.instance()
 		enemy.add_to_group("enemies")
-		enemy.position = positions[cont]
+		enemy.position = get_position()
 		add_child(enemy)
-		cont += 1
+		
 	
 	
 
