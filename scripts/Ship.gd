@@ -1,8 +1,10 @@
 extends KinematicBody2D
 class_name Ship
 
+
 const bulletPath = preload("res://nodes/Bullet.tscn")
 var Layers = preload("res://scripts/config.gd").Layers
+
 
 # Constants
 const MAX_SPEED = 200
