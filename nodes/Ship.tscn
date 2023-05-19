@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
+height = 14.0
 
 [node name="Ship" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -16,5 +17,14 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 0, -1 )
 color = Color( 0.92549, 0.0745098, 0.0745098, 1 )
-polygon = PoolVector2Array( -12, -10, 12, -10, 20, -1, 12, 10, -13, 10, -20, -1 )
+polygon = PoolVector2Array( -12, -9, 12, -9, 20, 1, 14, 11, -13, 11, -20, 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Node2D"]
+position = Vector2( 31, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+polygon = PoolVector2Array( 31, -1, 30, 0, 31, 1, 32, 0 )

@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://scripts/Bullet.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://scripts/Ship.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"Ship": ""
+}
+
 [application]
 
 config/name="SeaOdyssey"
