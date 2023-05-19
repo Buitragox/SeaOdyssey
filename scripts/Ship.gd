@@ -30,7 +30,7 @@ func shoot():
 	var pos = $Node2D/Position2D.global_position
 	var bullet = bulletPath.instance()
 	bullet.add_to_group("bullets")
-	add_child(bullet)
+	get_parent().add_child(bullet)
 	bullet.global_position = pos
 	bullet.velocity = pos - $Node2D.global_position
 	
