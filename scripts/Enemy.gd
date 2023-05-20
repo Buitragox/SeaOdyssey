@@ -16,6 +16,7 @@ func move():
 
 func hit(damage):
 	health -= damage
+	$Enemy_healthbar/TextureProgress.value -= damage
 	die()
 
 func die():
@@ -24,7 +25,7 @@ func die():
 
 func _ready():
 	randomize()
-	
+	$Enemy_healthbar/TextureProgress.max_value = health
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= -20 and position.y <= 0:
 		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 50 , CONF.WIDTH - CONF.WIDTH/4 - 50), rand_range(50, CONF.HEIGHT/2 - 50))
 		
