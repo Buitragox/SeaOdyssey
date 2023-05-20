@@ -1,22 +1,66 @@
 extends KinematicBody2D
-const CONF = preload("res://scripts/config.gd")
 
 class_name Enemy
 
+const CONF = preload("res://scripts/config.gd")
+const bulletPath = preload("res://nodes/Bullet.tscn")
+var Layers = preload("res://scripts/config.gd").Layers
+
 var velocity = Vector2()
 var to_go_pos = Vector2()
-var speed = 500
+var speed = 400
 var health = 100
+var damage = 20
+
+var attack_speed = 2.0 # amount of bullets to shoot per second
+var shoot_rate # The shooting rate equals 1/attack_speed
+var shoot_time = 0 
+var has_shot = false
+
+const BULLET_COLOR = Color("#e852ea") # Pink
+
+func shoot():
+	var pos = $Node2D/Position2D.global_position
+	var bullet = bulletPath.instance()
+	
+	# configure collision layers
+	bullet.set_collision_layer_bit(Layers.ENEMY_BULLET, true)
+	bullet.set_collision_mask_bit(Layers.SHIP, true)
+	
+	# add to group and tree
+	bullet.add_to_group("bullets")
+	get_parent().add_child(bullet)
+	
+	#set position, velocity and color
+	bullet.set_bullet_data(pos, pos - $Node2D.global_position, BULLET_COLOR)
+	bullet.speed = 150
+	bullet.damage = damage
+	
+func verify_shoot(delta):
+	var ship = get_parent().get_node_or_null("./Ship")
+	if ship:
+		$Node2D.look_at(ship.global_position)
+
+	shoot_time += delta
+	if shoot_time >= shoot_rate:
+		has_shot = false
+		shoot_time = 0
+
+
+	if not has_shot:
+		has_shot = true
+		shoot()
 
 func move():	
 	if abs(position.x - to_go_pos.x) > CONF.MOV_ERROR and abs(position.y - to_go_pos.y) > CONF.MOV_ERROR :
 		var direction = (to_go_pos - position).normalized()
 		velocity = direction * speed
-		move_and_slide(velocity)
+		velocity = move_and_slide(velocity)
 
-func hit(damage):
-	health -= damage
-	$Enemy_healthbar/TextureProgress.value -= damage
+
+func hit(dmg):
+	health -= dmg
+  $Enemy_healthbar/TextureProgress.value -= dmg
 	die()
 
 func die():
@@ -24,6 +68,8 @@ func die():
 		queue_free()
 
 func _ready():
+	shoot_rate = 1.0/attack_speed
+	
 	randomize()
 	$Enemy_healthbar/TextureProgress.max_value = health
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= -20 and position.y <= 0:
@@ -34,8 +80,11 @@ func _ready():
 	
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= CONF.HEIGHT and position.y <=  CONF.HEIGHT + 20:
 		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 50, CONF.WIDTH - CONF.WIDTH/4 - 50), rand_range(CONF.HEIGHT/2 + 50, CONF.HEIGHT - 50))
-	
-func _physics_process(delta):
+
+func _process(delta):
+	verify_shoot(delta)
+
+func _physics_process(_delta):
 	move()	
 	
 	
