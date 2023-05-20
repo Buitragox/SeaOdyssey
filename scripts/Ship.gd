@@ -64,6 +64,14 @@ func verify_shoot(delta):
 	if Input.is_action_pressed("Shoot") and not has_shot:
 		has_shot = true
 		shoot()
+
+func hit(damage):
+	health -= damage
+	die()
+
+func die():
+	if health <= 0:
+		queue_free()
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -73,6 +81,6 @@ func _ready():
 func _process(delta):
 	verify_shoot(delta)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movement()
 
