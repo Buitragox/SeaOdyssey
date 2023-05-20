@@ -46,6 +46,8 @@ func _on_Timer_timeout():
 		enemy.position = get_position()
 		add_child(enemy)
 		
+		
+		
 	
 	
 
