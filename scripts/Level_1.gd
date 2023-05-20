@@ -3,7 +3,7 @@ const CONF = preload("res://scripts/config.gd")
 
 class_name Level_1
 
-const MAX_ENEMIES_IN_SCREEN = 30 
+const MAX_ENEMIES_IN_SCREEN = 8
 
 var enemy_scene = preload("res://nodes/Enemy.tscn")
 var ship_scene = preload("res://nodes/Ship.tscn")
