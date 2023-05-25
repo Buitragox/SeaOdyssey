@@ -61,11 +61,13 @@ func move():
 func hit(dmg):
 	health -= dmg
 	$Enemy_healthbar/TextureProgress.value -= dmg
-	die()
+	
+	if health <= 0:
+		die()
 
 func die():
-	if health <= 0:
-		queue_free()
+	# Maybe put here some animation
+	queue_free()
 
 func _ready():
 	shoot_rate = 1.0/attack_speed

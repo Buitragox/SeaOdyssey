@@ -53,13 +53,13 @@ func verify_shoot(delta):
 	mouse_pos = get_global_mouse_position()
 	$Node2D.look_at(mouse_pos)
 	
-	shoot_time += delta
-	if shoot_time >= shoot_rate:
-		has_shot = false
-		shoot_time = 0
+	# CHECK
+	if has_shot:
+		shoot_time += delta
+		if shoot_time >= shoot_rate:
+			has_shot = false
+			shoot_time = 0
 	
-	if Input.is_action_just_pressed("Shoot"):
-		shoot_time = 0
 		
 	if Input.is_action_pressed("Shoot") and not has_shot:
 		has_shot = true
@@ -67,11 +67,14 @@ func verify_shoot(delta):
 
 func hit(damage):
 	health -= damage
-	die()
+	if health <= 0:
+		die()
 
 func die():
-	if health <= 0:
-		queue_free()
+	
+	# Maybe put here some animation
+	
+	queue_free()
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
