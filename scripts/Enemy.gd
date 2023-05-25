@@ -8,7 +8,7 @@ var Layers = preload("res://scripts/config.gd").Layers
 
 var velocity = Vector2()
 var to_go_pos = Vector2()
-var speed = 400
+var speed = 100
 var health = 100
 var damage = 20
 
@@ -60,7 +60,7 @@ func move():
 
 func hit(dmg):
 	health -= dmg
-  $Enemy_healthbar/TextureProgress.value -= dmg
+	$Enemy_healthbar/TextureProgress.value -= dmg
 	die()
 
 func die():
@@ -73,14 +73,17 @@ func _ready():
 	randomize()
 	$Enemy_healthbar/TextureProgress.max_value = health
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= -20 and position.y <= 0:
-		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 50 , CONF.WIDTH - CONF.WIDTH/4 - 50), rand_range(50, CONF.HEIGHT/2 - 50))
+		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 100 , CONF.WIDTH - CONF.WIDTH/4 - 100), rand_range(100, CONF.HEIGHT/2 - 100))
 		
 	if position.x >= CONF.WIDTH and position.x <= CONF.WIDTH + 20 and position.y >= 0 and position.y <=  CONF.HEIGHT:
-		to_go_pos = Vector2(rand_range(CONF.WIDTH - CONF.WIDTH/4 + 50 , CONF.WIDTH - 50), rand_range(50, CONF.HEIGHT - 50))	
+		to_go_pos = Vector2(rand_range(CONF.WIDTH - CONF.WIDTH/4 + 100 , CONF.WIDTH - 100), rand_range(100, CONF.HEIGHT - 100))	
 	
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= CONF.HEIGHT and position.y <=  CONF.HEIGHT + 20:
-		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 50, CONF.WIDTH - CONF.WIDTH/4 - 50), rand_range(CONF.HEIGHT/2 + 50, CONF.HEIGHT - 50))
-
+		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 100, CONF.WIDTH - CONF.WIDTH/4 - 100), rand_range(CONF.HEIGHT/2 + 100, CONF.HEIGHT - 100))
+		
+	print(to_go_pos)
+	
+	
 func _process(delta):
 	verify_shoot(delta)
 

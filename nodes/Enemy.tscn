@@ -24,7 +24,6 @@ shape = SubResource( 1 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 0, -10, 10, 0, 0, 10, -10, 0 )
 
-
 [node name="Enemy_healthbar" parent="." instance=ExtResource( 2 )]
 margin_left = -10.0
 margin_top = -17.0
@@ -35,4 +34,3 @@ margin_bottom = -12.0
 
 [node name="Position2D" type="Position2D" parent="Node2D"]
 position = Vector2( 11, 0 )
-

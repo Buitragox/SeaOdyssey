@@ -3,7 +3,7 @@ const CONF = preload("res://scripts/config.gd")
 
 class_name Level_1
 
-const MAX_ENEMIES_IN_SCREEN = 8
+const MAX_ENEMIES_IN_SCREEN = 4
 
 var enemy_scene = preload("res://nodes/Enemy.tscn")
 var ship_scene = preload("res://nodes/Ship.tscn")
@@ -13,13 +13,16 @@ var cont = 0
 func get_position():
 	var pos_aux = Vector2()
 	
-	if cont % 3 == 0: 
+	if cont % 4 == 0: 
 		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
 		
-	if cont % 3 == 1:
+	if cont % 4 == 1:
+		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
+		
+	if cont % 4 == 2:
 		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
 	
-	if cont % 3 == 2:
+	if cont % 4 == 3:
 		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
 	
 	cont += 1
