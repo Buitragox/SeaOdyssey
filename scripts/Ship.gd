@@ -11,7 +11,7 @@ const MAX_SPEED = 200
 
 # Variables
 var velocity = Vector2.ZERO
-var health = 10000000000000
+var health = 100
 var max_health = 100
 
 #Data related to bullets
@@ -21,7 +21,7 @@ var shoot_rate # The shooting rate equals 1/attack_speed
 var shoot_time = 0 
 var has_shot = false
 
-const BULLET_COLOR = Color("#cecf9e")
+const BULLET_COLOR = Color("#f10c0c")
 
 # simple movemenst without ifs
 func movement():
@@ -46,8 +46,7 @@ func shoot():
 	
 	#set position, velocity and color
 	bullet.set_bullet_data(pos, pos - $Node2D.global_position, BULLET_COLOR)
-
-	print("bullets:", get_tree().get_nodes_in_group("bullets").size())
+	
 	
 func verify_shoot(delta):
 	mouse_pos = get_global_mouse_position()
