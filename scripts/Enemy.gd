@@ -10,6 +10,7 @@ var velocity = Vector2()
 var to_go_pos = Vector2()
 var speed = 100
 var health = 100
+var max_health = 100
 var damage = 20
 
 var attack_speed = 2.0 # amount of bullets to shoot per second
@@ -18,6 +19,7 @@ var shoot_time = 0
 var has_shot = false
 
 const BULLET_COLOR = Color("#e852ea") # Pink
+
 
 func shoot():
 	var pos = $Node2D/Position2D.global_position
@@ -36,6 +38,7 @@ func shoot():
 	bullet.speed = 150
 	bullet.damage = damage
 	
+	
 func verify_shoot(delta):
 	var ship = get_parent().get_node_or_null("./Ship")
 	if ship:
@@ -51,6 +54,7 @@ func verify_shoot(delta):
 		has_shot = true
 		shoot()
 
+
 func move():	
 	if abs(position.x - to_go_pos.x) > CONF.MOV_ERROR and abs(position.y - to_go_pos.y) > CONF.MOV_ERROR :
 		var direction = (to_go_pos - position).normalized()
@@ -65,12 +69,15 @@ func hit(dmg):
 	if health <= 0:
 		die()
 
+
 func die():
 	# Maybe put here some animation
 	queue_free()
 
+
 func _ready():
 	shoot_rate = 1.0/attack_speed
+	health = max_health
 	
 	randomize()
 	$Enemy_healthbar/TextureProgress.max_value = health
@@ -81,16 +88,15 @@ func _ready():
 		to_go_pos = Vector2(rand_range(CONF.WIDTH - CONF.WIDTH/4 + 100 , CONF.WIDTH - 100), rand_range(100, CONF.HEIGHT - 100))	
 	
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= CONF.HEIGHT and position.y <=  CONF.HEIGHT + 20:
+
 		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 100, CONF.WIDTH - CONF.WIDTH/4 - 100), rand_range(CONF.HEIGHT/2 + 100, CONF.HEIGHT - 100))
 		
 	print(to_go_pos)
-	
-	
+
+
 func _process(delta):
 	verify_shoot(delta)
 
+
 func _physics_process(_delta):
-	move()	
-	
-	
-	
+	move()

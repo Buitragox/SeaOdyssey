@@ -22,7 +22,6 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.155
-autostart = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 640, 360 )
