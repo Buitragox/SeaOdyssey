@@ -90,8 +90,6 @@ func _ready():
 	if position.x >= CONF.WIDTH/2 and position.x <= CONF.WIDTH + 20 and position.y >= CONF.HEIGHT and position.y <=  CONF.HEIGHT + 20:
 
 		to_go_pos = Vector2(rand_range(CONF.WIDTH/2 + 100, CONF.WIDTH - CONF.WIDTH/4 - 100), rand_range(CONF.HEIGHT/2 + 100, CONF.HEIGHT - 100))
-		
-	print(to_go_pos)
 
 
 func _process(delta):

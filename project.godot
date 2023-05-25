@@ -20,9 +20,9 @@ _global_script_classes=[ {
 "path": "res://scripts/Enemy.gd"
 }, {
 "base": "Node2D",
-"class": "Level_1",
+"class": "Level",
 "language": "GDScript",
-"path": "res://scripts/Level_1.gd"
+"path": "res://scripts/Level.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Ship",
@@ -32,14 +32,14 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bullet": "",
 "Enemy": "",
-"Level_1": "",
+"Level": "",
 "Ship": ""
 }
 
 [application]
 
 config/name="SeaOdyssey"
-run/main_scene="res://nodes/Level_1.tscn"
+run/main_scene="res://nodes/Level.tscn"
 config/icon="res://icon.png"
 
 [display]

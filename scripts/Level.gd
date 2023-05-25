@@ -1,7 +1,7 @@
 extends Node2D
 const CONF = preload("res://scripts/config.gd")
 
-class_name Level_1
+class_name Level
 
 
 var level_path = "res://levels/level1.json"
@@ -74,5 +74,4 @@ func load_level():
 	file.open(level_path, File.READ)
 	level_data = parse_json(file.get_as_text())
 	file.close()
-	print(level_data)
 	
