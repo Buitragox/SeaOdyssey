@@ -3,8 +3,10 @@ const CONF = preload("res://scripts/config.gd")
 
 class_name Level_1
 
+
 var level_path = "res://levels/level1.json"
 var level_data
+
 var enemy_scene = preload("res://nodes/Enemy.tscn")
 var ship_scene = preload("res://nodes/Ship.tscn")
 var count = 0
@@ -14,13 +16,17 @@ var wave_counter = 0
 func get_position():
 	var pos_aux = Vector2()
 	
-	if count % 3 == 0: 
+
+	if count % 4 == 0: 
 		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
 		
-	if count % 3 == 1:
+	if count % 4 == 1:
+		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
+		
+	if count % 4 == 2:
 		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
 	
-	if count % 3 == 2:
+	if count % 4 == 3:
 		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
 	
 	count += 1

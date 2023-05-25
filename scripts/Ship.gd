@@ -11,7 +11,7 @@ const MAX_SPEED = 200
 
 # Variables
 var velocity = Vector2.ZERO
-var health = 100
+var health = 10000000000000
 var max_health = 100
 
 #Data related to bullets
