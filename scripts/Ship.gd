@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Ship
 
+signal dead
 
 const bulletPath = preload("res://nodes/Bullet.tscn")
 var Layers = preload("res://scripts/config.gd").Layers
@@ -66,17 +67,19 @@ func verify_shoot(delta):
 
 func hit(damage):
 	health -= damage
+	get_parent().get_node_or_null('./ShipHealthbar/TextureProgress').value -= damage
 	if health <= 0:
 		die()
 
 func die():
 	
 	# Maybe put here some animation
-	
+	emit_signal("dead")
 	queue_free()
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("dead", get_node("/root/Game"), "_is_player_dead")
 	shoot_rate = 1.0/attack_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
