@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/PlayAgainButton.gd" type="Script" id=1]
+[ext_resource path="res://scripts/MainMenuButton.gd" type="Script" id=2]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 642, 360 )
+scale = Vector2( 3.5, 2.8 )
+
+[node name="PlayAgainButton" type="Button" parent="Node2D2"]
+margin_left = -85.7143
+margin_top = 15.7143
+margin_right = -8.71429
+margin_bottom = 37.7143
+text = "Play Again"
+icon_align = 1
+expand_icon = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainMenuButton" type="Button" parent="Node2D2"]
+margin_left = 6.28573
+margin_top = 16.4286
+margin_right = 90.2857
+margin_bottom = 38.4286
+text = "Main menu"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Node2D3" type="Node2D" parent="."]
+scale = Vector2( 10, 10 )
+
+[node name="text" type="RichTextLabel" parent="Node2D3"]
+margin_left = 24.0
+margin_top = 12.5
+margin_right = 108.0
+margin_bottom = 31.5
+custom_colors/default_color = Color( 0.00784314, 0.0431373, 0.329412, 1 )
+tab_size = 16
+text = " Game Over
+"
+scroll_active = false

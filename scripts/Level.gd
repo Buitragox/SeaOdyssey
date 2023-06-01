@@ -16,7 +16,6 @@ var wave_counter = 0
 func get_position():
 	var pos_aux = Vector2()
 	
-
 	if count % 4 == 0: 
 		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
 		

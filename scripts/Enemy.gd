@@ -49,7 +49,6 @@ func verify_shoot(delta):
 		has_shot = false
 		shoot_time = 0
 
-
 	if not has_shot:
 		has_shot = true
 		shoot()

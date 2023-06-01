@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SeaOdyssey"
-run/main_scene="res://nodes/Level.tscn"
+run/main_scene="res://nodes/Game.tscn"
 config/icon="res://icon.png"
 
 [display]
