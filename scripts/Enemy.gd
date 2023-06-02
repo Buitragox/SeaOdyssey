@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Enemy
 
+signal enemy_dead(parameter)
+
 const CONF = preload("res://scripts/config.gd")
 const bulletPath = preload("res://nodes/Bullet.tscn")
 var Layers = preload("res://scripts/config.gd").Layers
@@ -70,11 +72,12 @@ func hit(dmg):
 
 
 func die():
-	# Maybe put here some animation
+	emit_signal("enemy_dead")
 	queue_free()
 
 
 func _ready():
+	connect("enemy_dead", get_node("/root/Game/Level"), "_on_enemy_dead")
 	shoot_rate = 1.0/attack_speed
 	health = max_health
 	

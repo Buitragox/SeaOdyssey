@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://textures/WATER BACKGROUND 2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://textures/WATER BACKGROUND 4.png" type="Texture" id=4]
 [ext_resource path="res://textures/WATER BACKGROUND 5.png" type="Texture" id=5]
 [ext_resource path="res://textures/04.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,6 +31,13 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 48, 48, 48, 15 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -42,112 +50,112 @@ __meta__ = {
 position = Vector2( 160, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 480, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Background"]
 position = Vector2( 160, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Background"]
 position = Vector2( 480, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Background"]
 position = Vector2( 800, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Background"]
 position = Vector2( 1120, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="Background"]
 position = Vector2( 800, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="Background"]
 position = Vector2( 1120, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="Background"]
 position = Vector2( 160, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite10" type="AnimatedSprite" parent="Background"]
 position = Vector2( 480, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite11" type="AnimatedSprite" parent="Background"]
 position = Vector2( 160, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="Background"]
 position = Vector2( 480, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="Background"]
 position = Vector2( 800, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite14" type="AnimatedSprite" parent="Background"]
 position = Vector2( 1120, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite15" type="AnimatedSprite" parent="Background"]
 position = Vector2( 800, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite16" type="AnimatedSprite" parent="Background"]
 position = Vector2( 1120, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ShipHealthbar" type="Node2D" parent="."]
@@ -163,6 +171,33 @@ value = 100.0
 texture_under = SubResource( 4 )
 texture_over = SubResource( 2 )
 texture_progress = SubResource( 3 )
+
+[node name="Interface" type="Control" parent="."]
+margin_left = 59.0
+margin_top = 638.0
+margin_right = 59.0
+margin_bottom = 638.0
+theme = SubResource( 6 )
+
+[node name="ScoreLabel" type="Label" parent="Interface"]
+margin_left = -9.0
+margin_top = -59.0
+margin_right = 151.0
+margin_bottom = -9.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Score: 0"
+
+[node name="WaveLabel" type="Label" parent="Interface"]
+margin_left = -7.0
+margin_top = -10.0
+margin_right = 198.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Wave: Starting..."
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.155
