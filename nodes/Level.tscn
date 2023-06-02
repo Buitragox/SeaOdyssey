@@ -38,116 +38,116 @@ __meta__ = {
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="AnimatedSprite1" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite1" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 160, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 480, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite3" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 160, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite4" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 480, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite5" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 800, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite6" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 1120, 90 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite7" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 800, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite8" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 1120, 270 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite9" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 160, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite10" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 480, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite11" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 160, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite12" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 480, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite13" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 800, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite14" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 1120, 450 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite15" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 800, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="AnimatedSprite16" type="AnimatedSprite" parent="Background"]
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="Background" groups=["background"]]
 position = Vector2( 1120, 630 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ShipHealthbar" type="Node2D" parent="."]

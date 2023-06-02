@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://nodes/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/EnemyShotgun.gd" type="Script" id=2]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ShotSpawn2" type="Position2D" parent="ShotDirection" index="1"]
+position = Vector2( 13, -2 )
+
+[node name="ShotSpawn3" type="Position2D" parent="ShotDirection" index="2"]
+position = Vector2( 13, 2 )
+
+[node name="Inside" parent="Body" index="1"]
+color = Color( 0.752941, 0.282353, 0.0784314, 1 )

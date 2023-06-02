@@ -4,7 +4,7 @@
 			"delay": 5,
 			"enemies": [
 				{
-					"type": "classic",
+					"type": "chaser",
 					"damage": 20.0,
 					"amount": 5.0
 				}
@@ -14,9 +14,14 @@
 			"delay": 10,
 			"enemies": [
 				{
-					"type": "classic",
+					"type": "shotgun",
 					"damage": 20.0,
-					"amount": 10.0
+					"amount": 8.0
+				},
+				{
+					"type": "normal",
+					"damage": 20.0,
+					"amount": 2.0
 				}
 			]
 		}
