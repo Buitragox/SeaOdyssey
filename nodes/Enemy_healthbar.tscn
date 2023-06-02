@@ -12,7 +12,7 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3, 21, 20, 5 )
 
-[node name="Enemy_healthbar" type="CenterContainer"]
+[node name="EnemyHealthbar" type="CenterContainer"]
 margin_right = 20.0
 margin_bottom = 5.0
 

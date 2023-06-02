@@ -4,7 +4,7 @@
 [ext_resource path="res://nodes/Enemy_healthbar.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.07107, 7.07107 )
+extents = Vector2( 7.0697, 7.07103 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -12,7 +12,7 @@ collision_mask = 5
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.38419e-07, 0 )
+position = Vector2( 0.00105067, -0.0336406 )
 rotation = 0.788856
 shape = SubResource( 1 )
 
@@ -20,15 +20,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="Enemy_healthbar" parent="." instance=ExtResource( 2 )]
-margin_left = -10.0
-margin_top = -19.0
-margin_right = 10.0
-margin_bottom = -14.0
+[node name="ShootDirection" type="Node2D" parent="."]
 
-[node name="ShotDirection" type="Node2D" parent="."]
-
-[node name="ShotSpawn" type="Position2D" parent="ShotDirection"]
+[node name="BulletSpawn1" type="Position2D" parent="ShootDirection"]
 position = Vector2( 14, 0 )
 
 [node name="Body" type="Node2D" parent="."]
@@ -43,3 +37,11 @@ polygon = PoolVector2Array( 0, -10, 10, 0, 4.63444, 5.36556, 0, 10, -10, 0 )
 color = Color( 0.752941, 0.0784314, 0.0784314, 1 )
 antialiased = true
 polygon = PoolVector2Array( 0, -10, 10, 0, 0, 10, -10, 0 )
+
+[node name="Healthbar" type="Node2D" parent="."]
+
+[node name="EnemyHealthbar" parent="Healthbar" instance=ExtResource( 2 )]
+margin_left = -10.0
+margin_top = -19.0
+margin_right = 10.0
+margin_bottom = -14.0

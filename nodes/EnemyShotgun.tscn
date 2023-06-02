@@ -6,10 +6,10 @@
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="ShotSpawn2" type="Position2D" parent="ShotDirection" index="1"]
+[node name="BulletSpawn2" type="Position2D" parent="ShootDirection" index="1"]
 position = Vector2( 13, -2 )
 
-[node name="ShotSpawn3" type="Position2D" parent="ShotDirection" index="2"]
+[node name="BulletSpawn3" type="Position2D" parent="ShootDirection" index="2"]
 position = Vector2( 13, 2 )
 
 [node name="Inside" parent="Body" index="1"]

@@ -24,7 +24,7 @@ var bullet_color = Color("#e852ea") # Pink
 
 
 func shoot():
-	var pos = $ShotDirection/ShotSpawn.global_position
+	var pos = $ShootDirection/BulletSpawn1.global_position
 	var bullet = bulletPath.instance()
 	
 	# configure collision layers
@@ -36,7 +36,7 @@ func shoot():
 	get_parent().add_child(bullet)
 	
 	#set position, velocity and color
-	bullet.set_bullet_data(pos, pos - $ShotDirection.global_position, bullet_color)
+	bullet.set_bullet_data(pos, pos - $ShootDirection.global_position, bullet_color)
 	bullet.speed = 150
 	bullet.damage = damage
 	
@@ -44,7 +44,7 @@ func shoot():
 func verify_shoot(delta):
 	var ship = get_parent().get_node_or_null("./Ship")
 	if ship:
-		$ShotDirection.look_at(ship.global_position)
+		$ShootDirection.look_at(ship.global_position)
 
 	shoot_time += delta
 	if shoot_time >= shoot_rate:
@@ -65,7 +65,7 @@ func move(_delta):
 
 func hit(dmg):
 	health -= dmg
-	$Enemy_healthbar/TextureProgress.value -= dmg
+	$Healthbar/EnemyHealthbar/TextureProgress.value -= dmg
 	
 	if health <= 0:
 		die()
@@ -81,7 +81,7 @@ func _ready():
 	shoot_rate = 1.0/attack_speed
 	health = max_health
 	randomize()
-	$Enemy_healthbar/TextureProgress.max_value = health
+	$Healthbar/EnemyHealthbar/TextureProgress.max_value = max_health
 	if position.x >= CONF.WIDTH/2.0 and position.x <= CONF.WIDTH + 20 and position.y >= -20 and position.y <= 0:
 		to_go_pos = Vector2(rand_range(CONF.WIDTH/2.0 + 100 , CONF.WIDTH - CONF.WIDTH/4.0 - 100), rand_range(100, CONF.HEIGHT/2.0 - 100))
 		

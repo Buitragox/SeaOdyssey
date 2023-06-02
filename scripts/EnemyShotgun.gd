@@ -6,19 +6,17 @@ extends Enemy
 # var b = "text"
 
 var angles = [0, 5, -5]
-onready var positions = [$ShotDirection/ShotSpawn, 
-				 $ShotDirection/ShotSpawn2, 
-				 $ShotDirection/ShotSpawn3]
+onready var positions = [$ShootDirection/BulletSpawn1,
+						 $ShootDirection/BulletSpawn2, 
+						 $ShootDirection/BulletSpawn3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bullet_color = Color("#de7c0e")
 	attack_speed = 0.75
 	shoot_rate = 1.0/attack_speed
-	health = max_health
 
 func shoot():
-	
 	for i in range(3):
 		var bullet = bulletPath.instance()
 		
@@ -32,11 +30,11 @@ func shoot():
 		
 		#set position, velocity and color
 		var pos = positions[i].global_position
-		var dir : Vector2 = (pos - $ShotDirection.global_position)
+		var dir : Vector2 = (pos - $ShootDirection.global_position)
 		
 		# warning-ignore:return_value_discarded
 		dir.rotated(deg2rad(angles[i]))
-		bullet.set_bullet_data(pos, pos - $ShotDirection.global_position, bullet_color)
+		bullet.set_bullet_data(pos, pos - $ShootDirection.global_position, bullet_color)
 		bullet.speed = 150
 		bullet.damage = damage
 	
