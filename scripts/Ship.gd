@@ -22,6 +22,7 @@ var shoot_rate # The shooting rate equals 1/attack_speed
 var shoot_time = 0 
 var has_shot = false
 
+
 const BULLET_COLOR = Color("#f10c0c")
 
 # simple movemenst without ifs

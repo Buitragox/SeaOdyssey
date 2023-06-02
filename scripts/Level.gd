@@ -1,6 +1,8 @@
 extends Node2D
 const CONF = preload("res://scripts/config.gd")
 
+signal level_complete
+
 class_name Level
 
 
@@ -11,6 +13,8 @@ var enemy_scene = preload("res://nodes/Enemy.tscn")
 var ship_scene = preload("res://nodes/Ship.tscn")
 var count = 0
 var wave_counter = 0
+var score = 0
+var text
 
 
 func get_position():
@@ -37,6 +41,8 @@ func get_position():
 
 	
 func _ready():
+	connect("level_complete", get_node("/root/Game"), "_level_is_finished")
+	
 	randomize()
 	var ship = ship_scene.instance()
 	ship.add_to_group("ship")
@@ -46,6 +52,13 @@ func _ready():
 	load_level()
 	$Timer.wait_time = level_data.waves[0].delay
 	$Timer.start()
+	
+func _process(_delta):
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var total_waves = level_data.waves.size()
+	
+	if enemies.size() == 0 and wave_counter >= total_waves:
+		emit_signal("level_complete")
 	
 
 func _on_Timer_timeout():
@@ -59,7 +72,9 @@ func _on_Timer_timeout():
 			add_child(enemy)
 	
 	wave_counter += 1
+	$Interface/WaveLabel.text = "Wave: %d / %d" % [wave_counter, level_data.waves.size()]
 	if wave_counter < level_data.waves.size():
+		
 		$Timer.wait_time = level_data.waves[wave_counter].delay
 		$Timer.start()
 	else:
@@ -74,3 +89,8 @@ func load_level():
 	level_data = parse_json(file.get_as_text())
 	file.close()
 	
+
+func _on_enemy_dead():
+	score += 50
+	text = "Score: %s" % score
+	$Interface/ScoreLabel.text = text
