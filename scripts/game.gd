@@ -3,20 +3,20 @@ extends Node
 var main_menu_scene = preload("res://nodes/MainMenu.tscn")
 var level_scene = preload("res://nodes/Level.tscn")
 var game_over_scene = preload("res://nodes/GameOver.tscn")
+var level_complete_scene = preload("res://nodes/LevelComplete.tscn")
+
 var level
+var level_complete
 var game_over
 var main_menu
 
 func _ready():
 	main_menu = main_menu_scene.instance()
 	add_child(main_menu)
-
-#func _process(delta):
-#	var button = get_node_or_null('./MainMenu/Node2D2/PlayButton')
-#	var level = level_scene.instance()
-#	if button and button.pressed:
-#		$MainMenu.queue_free()
-#		add_child(level)
+	
+func _level_is_finished():
+	level_complete = level_complete_scene.instance()
+	add_child(level_complete)
 
 func _is_player_dead():
 	game_over = game_over_scene.instance()
@@ -24,20 +24,23 @@ func _is_player_dead():
 
 func _on_PlayButton_pressed():
 	level = level_scene.instance()
-	level.set_name("Level")
+	level.name = "Level"
 	main_menu.queue_free()
-	add_child(level)
+	add_child(level, true)
 	
 func _on_ExitButton_pressed():
 	get_tree().quit()
 	
 func _on_PlayAgainButton_pressed():
 	game_over.queue_free()
-	level.queue_free()
+	level.free()
 	
 	level = level_scene.instance()
 	level.name = "Level"
-	add_child(level)
+	add_child(level, true)
+	
+func _on_NextLevelButton_pressed():
+	pass
 	
 func _on_MainMenuButton_pressed():
 	main_menu = main_menu_scene.instance()

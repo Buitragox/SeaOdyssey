@@ -6,12 +6,12 @@
 				{
 					"type": "chaser",
 					"damage": 20.0,
-					"amount": 5.0
+					"amount": 2
 				}
 			]
 		},
 		{
-			"delay": 10,
+			"delay": 5,
 			"enemies": [
 				{
 					"type": "shotgun",

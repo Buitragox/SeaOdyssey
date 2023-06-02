@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/PlayAgainButton.gd" type="Script" id=1]
 [ext_resource path="res://scripts/MainMenuButton.gd" type="Script" id=2]
+[ext_resource path="res://textures/Gameover.png" type="Texture" id=3]
 
 [node name="GameOver" type="Node2D"]
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 642, 360 )
-scale = Vector2( 3.5, 2.8 )
+scale = Vector2( 2, 2 )
 
 [node name="PlayAgainButton" type="Button" parent="Node2D2"]
 margin_left = -85.7143
@@ -34,15 +35,8 @@ __meta__ = {
 }
 
 [node name="Node2D3" type="Node2D" parent="."]
-scale = Vector2( 10, 10 )
 
-[node name="text" type="RichTextLabel" parent="Node2D3"]
-margin_left = 24.0
-margin_top = 12.5
-margin_right = 108.0
-margin_bottom = 31.5
-custom_colors/default_color = Color( 0.00784314, 0.0431373, 0.329412, 1 )
-tab_size = 16
-text = " Game Over
-"
-scroll_active = false
+[node name="Sprite" type="Sprite" parent="Node2D3"]
+position = Vector2( 645, 320 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
