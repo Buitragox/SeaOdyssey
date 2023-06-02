@@ -20,26 +20,17 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, -10, 10, 0, 0, 10, -10, 0 )
+
 [node name="Enemy_healthbar" parent="." instance=ExtResource( 2 )]
 margin_left = -10.0
-margin_top = -19.0
+margin_top = -17.0
 margin_right = 10.0
-margin_bottom = -14.0
+margin_bottom = -12.0
 
-[node name="ShotDirection" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="ShotSpawn" type="Position2D" parent="ShotDirection"]
-position = Vector2( 14, 0 )
-
-[node name="Body" type="Node2D" parent="."]
-
-[node name="Border" type="Polygon2D" parent="Body"]
-scale = Vector2( 1.31816, 1.31816 )
-color = Color( 0, 0, 0, 1 )
-antialiased = true
-polygon = PoolVector2Array( 0, -10, 10, 0, 4.63444, 5.36556, 0, 10, -10, 0 )
-
-[node name="Inside" type="Polygon2D" parent="Body"]
-color = Color( 0.752941, 0.0784314, 0.0784314, 1 )
-antialiased = true
-polygon = PoolVector2Array( 0, -10, 10, 0, 0, 10, -10, 0 )
+[node name="Position2D" type="Position2D" parent="Node2D"]
+position = Vector2( 11, 0 )
