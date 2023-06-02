@@ -10,6 +10,9 @@ var level_complete
 var game_over
 var main_menu
 
+
+var level_count = 1
+
 func _ready():
 	main_menu = main_menu_scene.instance()
 	add_child(main_menu)
@@ -32,15 +35,27 @@ func _on_ExitButton_pressed():
 	get_tree().quit()
 	
 func _on_PlayAgainButton_pressed():
+	var nextPath = "res://levels/level%d.json" % level_count
 	game_over.queue_free()
 	level.free()
 	
 	level = level_scene.instance()
+	level.level_path = nextPath
 	level.name = "Level"
 	add_child(level, true)
 	
 func _on_NextLevelButton_pressed():
-	pass
+	level_count +=1
+	var nextPath = "res://levels/level%d.json" % level_count
+	level_complete.free()
+	
+	level.free()
+	level = level_scene.instance()
+	level.level_path = nextPath
+	level.name = "Level"
+	add_child(level, true)
+	
+	
 	
 func _on_MainMenuButton_pressed():
 	main_menu = main_menu_scene.instance()
