@@ -9,19 +9,23 @@ class_name Level
 var level_path = "res://levels/level1.json"
 var level_data
 
-var enemy_scene = preload("res://nodes/Enemy.tscn")
+var enemy_scenes = {"normal": preload("res://nodes/Enemy.tscn"),
+					"shotgun": preload("res://nodes/EnemyShotgun.tscn"),
+					"chaser": preload("res://nodes/EnemyChaser.tscn")}
+
 var ship_scene = preload("res://nodes/Ship.tscn")
 var count = 0
 var wave_counter = 0
 var score = 0
 var text
+var bg_modulate = Color("#268fbe")
 
 
 func get_position():
 	var pos_aux = Vector2()
 	
 	if count % 4 == 0: 
-		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(-20, 0))
+		pos_aux = Vector2(rand_range(CONF.WIDTH/2.0, CONF.WIDTH + 20), rand_range(-20, 0))
 		
 	if count % 4 == 1:
 		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
@@ -30,7 +34,7 @@ func get_position():
 		pos_aux = Vector2(rand_range(CONF.WIDTH, CONF.WIDTH + 20), rand_range(0, CONF.HEIGHT))
 	
 	if count % 4 == 3:
-		pos_aux = Vector2(rand_range(CONF.WIDTH/2, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
+		pos_aux = Vector2(rand_range(CONF.WIDTH/2.0, CONF.WIDTH + 20), rand_range(CONF.HEIGHT, CONF.HEIGHT + 20))
 	
 	count += 1
 	
@@ -46,8 +50,12 @@ func _ready():
 	randomize()
 	var ship = ship_scene.instance()
 	ship.add_to_group("ship")
-	ship.position = Vector2(CONF.WIDTH/4, CONF.HEIGHT/2)
+	ship.position = Vector2(CONF.WIDTH/4.0, CONF.HEIGHT/2.0)
 	add_child(ship)
+	
+	var bg_sprites = get_tree().get_nodes_in_group("background")
+	for i in range(bg_sprites.size()):
+		bg_sprites[i].modulate = bg_modulate
 	
 	load_level()
 	$Timer.wait_time = level_data.waves[0].delay
@@ -65,7 +73,9 @@ func _on_Timer_timeout():
 	var amount_waves = level_data.waves[wave_counter].enemies.size()
 	for i in range(amount_waves):
 		var amount_enemy_types = level_data.waves[wave_counter].enemies[i].amount
-		for j in range(amount_enemy_types):
+		var type = level_data.waves[wave_counter].enemies[i].type
+		var enemy_scene = enemy_scenes[type]
+		for _j in range(amount_enemy_types):
 			var enemy = enemy_scene.instance()
 			enemy.add_to_group("enemies")
 			enemy.position = get_position()
