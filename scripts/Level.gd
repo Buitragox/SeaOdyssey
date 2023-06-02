@@ -11,7 +11,8 @@ var level_data
 
 var enemy_scenes = {"normal": preload("res://nodes/Enemy.tscn"),
 					"shotgun": preload("res://nodes/EnemyShotgun.tscn"),
-					"chaser": preload("res://nodes/EnemyChaser.tscn")}
+					"chaser": preload("res://nodes/EnemyChaser.tscn"),
+					"starboss": preload("res://nodes/EnemyStarBoss.tscn")}
 
 var ship_scene = preload("res://nodes/Ship.tscn")
 var count = 0

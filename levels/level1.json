@@ -1,12 +1,12 @@
 {
 	"waves": [
 		{
-			"delay": 5,
+			"delay": 1,
 			"enemies": [
 				{
 					"type": "chaser",
 					"damage": 20.0,
-					"amount": 2
+					"amount": 10
 				}
 			]
 		},
@@ -16,12 +16,12 @@
 				{
 					"type": "shotgun",
 					"damage": 20.0,
-					"amount": 8.0
+					"amount": 0.0
 				},
 				{
 					"type": "normal",
 					"damage": 20.0,
-					"amount": 2.0
+					"amount": 0.0
 				}
 			]
 		}
