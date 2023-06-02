@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8-bit-video-game-fail-version-2-145478.mp3-27ddea72566f296e3fbf65588633e54d.mp3str"
+
+[deps]
+
+source_file="res://sounds/8-bit-video-game-fail-version-2-145478.mp3"
+dest_files=[ "res://.import/8-bit-video-game-fail-version-2-145478.mp3-27ddea72566f296e3fbf65588633e54d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

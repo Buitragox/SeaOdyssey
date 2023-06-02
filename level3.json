@@ -1,0 +1,24 @@
+{
+	"waves": [
+		{
+			"delay": 5,
+			"enemies": [
+				{
+					"type": "chaser",
+					"damage": 20.0,
+					"amount": 5
+				}
+			]
+		},
+		{
+			"delay": 5,
+			"enemies": [
+				{
+					"type": "starboss",
+					"damage": 20.0,
+					"amount": 1
+				},
+			]
+		}
+	]
+}

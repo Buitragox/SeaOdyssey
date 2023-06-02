@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://sounds/man-is-he-mega-glbml-22045.mp3" type="AudioStream" id=2]
 [ext_resource path="res://sounds/win-sfx-38507.mp3" type="AudioStream" id=3]
+[ext_resource path="res://sounds/kim-lightyear-legends-109307.mp3" type="AudioStream" id=4]
+[ext_resource path="res://sounds/8-bit-video-game-fail-version-2-145478.mp3" type="AudioStream" id=5]
+[ext_resource path="res://sounds/270333__littlerobotsoundfactory__jingle_win_00.wav" type="AudioStream" id=6]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,3 +18,18 @@ volume_db = -35.0
 pause_mode = 1
 stream = ExtResource( 3 )
 volume_db = -12.036
+
+[node name="MusicLevels" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.901
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="LevelComplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="finished" from="StartEffect" to="." method="_on_StartEffect_finished"]

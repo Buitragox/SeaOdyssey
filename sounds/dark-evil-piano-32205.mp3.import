@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dark-evil-piano-32205.mp3-d387373574c7ca27071ccd52a63fc36c.mp3str"
+
+[deps]
+
+source_file="res://sounds/dark-evil-piano-32205.mp3"
+dest_files=[ "res://.import/dark-evil-piano-32205.mp3-d387373574c7ca27071ccd52a63fc36c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
