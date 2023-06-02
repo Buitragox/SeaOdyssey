@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/MainMenuButton.gd" type="Script" id=1]
+[ext_resource path="res://textures/win.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ExitButton.gd" type="Script" id=3]
+
+[node name="Win" type="Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 642, 400 )
+scale = Vector2( 2, 2 )
+
+[node name="ExitButton" type="Button" parent="Node2D2"]
+margin_left = -34.0
+margin_top = 35.7143
+margin_right = 34.0
+margin_bottom = 57.7143
+text = "Exit"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainMenuButton" type="Button" parent="Node2D2"]
+margin_left = -42.0
+margin_top = -8.0
+margin_right = 42.0
+margin_bottom = 14.0
+text = "Main menu"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Node2D3"]
+position = Vector2( 645, 220 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Interface" type="Control" parent="."]
+margin_left = 1084.0
+margin_top = 676.0
+margin_right = 1124.0
+margin_bottom = 716.0
+
+[node name="Credits" type="Label" parent="Interface"]
+margin_left = 8.0
+margin_top = -89.0
+margin_right = 166.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Development:
+Jhoan Manuel Buitrago C.
+Juan Felipe González V.
+Nicole Molineros.
+
+Design:
+Sofia Tenjo N."

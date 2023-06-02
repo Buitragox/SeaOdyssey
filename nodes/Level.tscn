@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://textures/WATER BACKGROUND 2.png" type="Texture" id=2]
@@ -37,6 +37,18 @@ font_data = ExtResource( 7 )
 
 [sub_resource type="Theme" id=6]
 default_font = SubResource( 5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 33, 363.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 643.5, 29.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 30.5, 364 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 644, 36.5 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -201,5 +213,35 @@ text = "Wave: Starting..."
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.155
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+position = Vector2( -33, 363.5 )
+shape = SubResource( 7 )
+
+[node name="Node2D2" type="StaticBody2D" parent="Walls"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Node2D2"]
+position = Vector2( 637.5, -29 )
+shape = SubResource( 8 )
+
+[node name="Node2D3" type="StaticBody2D" parent="Walls"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Node2D3"]
+position = Vector2( 1309.5, 356 )
+shape = SubResource( 9 )
+
+[node name="Node2D4" type="StaticBody2D" parent="Walls"]
+collision_layer = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Node2D4"]
+position = Vector2( 640, 756 )
+shape = SubResource( 10 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/win-sfx-38507.mp3-14572dc2f6ae498a451e1491c04d5451.mp3str"
+
+[deps]
+
+source_file="res://sounds/win-sfx-38507.mp3"
+dest_files=[ "res://.import/win-sfx-38507.mp3-14572dc2f6ae498a451e1491c04d5451.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

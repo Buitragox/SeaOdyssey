@@ -15,7 +15,7 @@ func move(_delta):
 	if collision:
 		if collision.collider.has_method("hit"):
 			collision.collider.hit(damage)
-		queue_free()
+			queue_free()
 	
 	$Body.rotate(deg2rad(120 * _delta))
 
