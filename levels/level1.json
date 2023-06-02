@@ -16,12 +16,12 @@
 				{
 					"type": "shotgun",
 					"damage": 20.0,
-					"amount": 0.0
+					"amount": 1.0
 				},
 				{
 					"type": "normal",
 					"damage": 20.0,
-					"amount": 0.0
+					"amount": 1.0
 				}
 			]
 		}

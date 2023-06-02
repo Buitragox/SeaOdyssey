@@ -20,7 +20,7 @@ var wave_counter = 0
 var score = 0
 var text
 var bg_modulate = Color("#268fbe")
-
+var cont = 0
 
 func get_position():
 	var pos_aux = Vector2()
@@ -66,7 +66,8 @@ func _process(_delta):
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	var total_waves = level_data.waves.size()
 	
-	if enemies.size() == 0 and wave_counter >= total_waves:
+	if enemies.size() == 0 and wave_counter >= total_waves and cont == 0:
+		cont += 1
 		emit_signal("level_complete")
 	
 

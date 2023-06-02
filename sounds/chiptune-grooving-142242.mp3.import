@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chiptune-grooving-142242.mp3-56ed78cb7ff993ddbbd9e384974010d1.mp3str"
+
+[deps]
+
+source_file="res://sounds/chiptune-grooving-142242.mp3"
+dest_files=[ "res://.import/chiptune-grooving-142242.mp3-56ed78cb7ff993ddbbd9e384974010d1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
