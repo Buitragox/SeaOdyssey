@@ -32,6 +32,7 @@ func movement():
 	
 	velocity.x = MAX_SPEED * horizontal
 	velocity.y = MAX_SPEED * vertical
+	
 	velocity = move_and_slide(velocity)
 	
 func shoot():
