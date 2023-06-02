@@ -27,4 +27,6 @@ texture = ExtResource( 2 )
 position = Vector2( 31, 0 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Node2D"]
-polygon = PoolVector2Array( 31, -1, 30, 0, 31, 1, 32, 0 )
+position = Vector2( -62, 1.19209e-07 )
+scale = Vector2( 3, 2.375 )
+polygon = PoolVector2Array( 31, -1, 31, 0, 31, 1, 32, 0 )
